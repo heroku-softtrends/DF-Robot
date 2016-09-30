@@ -24,8 +24,8 @@ namespace DemoDFRobot
 
             //for local testing
             //RobotID = "ROB000909R";
-            //IOTToken = "Bearer iguZgpnIwr8N60cD7cYgSMbYQm9QZXEY9AaqmeD6f4d2DoyvZNEhcQdzGSSFivDylWcXR5ShTu1AfMSCJi9sAj";
-            //EnpointUrl = "https://dashboard.us3.sfdcnow.com/clusters/xcdvudaz0dz3/inputstreams/robot_event_strea001/connections/robot001/event";
+            //IOTToken = "Bearer 279OC5MYsEqkVwBdWqTMMixlePISTXgfvLUFJJ8luCScsIq8P4svqPfjhEhawnuzAt20KiqvT9ae36XM3YXcFU";
+            //EnpointUrl = "https://dashboard.us3.sfdcnow.com/clusters/xcdvudaz0dz3/inputstreams/robot_event_strea001/connections/robot001";
             //IronMQUrl = "https://mq-aws-eu-west-1-1.iron.io/3/projects/57e6b7b6ce60dc0007dd3562/queues/robot_messages";
             //IronMQToken = "HniYT41oHGDUURz0DcXu";
         }

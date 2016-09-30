@@ -31,6 +31,7 @@ namespace DemoDFRobot.Controllers
                 {
                     IronMQMessage ironMQMessage = null;
                     IOTEventRequest eventRequest = new IOTEventRequest();
+					eventRequest.robotID = ConfigVars.Instance.RobotID;
                     eventRequest.robotEvent = isRobotFault ? "Fault" : "Operating";
                     eventRequest.controllerEvent = isCtrlFault ? "Fault" : "Operating";
                     httpClient1.DefaultRequestHeaders.Accept.Clear();
