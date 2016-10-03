@@ -43,7 +43,7 @@
 @section Scripts{
     <script type="text/javascript">
         var urlAction = '/RobotEvent/SendData';
-        var isSentData = false;
+        var isSentData = false, httpRequestLimit = 30, httpRequestCount = 0;
         var startProcess, btnText, btnBgColor;
 
         $(function () {
@@ -52,6 +52,7 @@
             $('#btnSend').on('click', function (e) {
                 isSentData = !isSentData;
                 btnText = btnBgColor = undefined;
+                ttpRequestCount = 0;
 
                 if (isSentData && startProcess == undefined) {
                     $('#lblMessage').css({ 'background-color': '' }).html('&nbsp;');
@@ -87,6 +88,7 @@
 
         function stopSendingData() {
             isSentData = false;
+            httpRequestCount = 0;
             if (startProcess) {
                 clearInterval(startProcess);
                 startProcess = undefined;
@@ -102,6 +104,7 @@
             if (startProcess && isSentData)
                 return;
             isSentData = true;
+            httpRequestCount++;
             if (isSentData) {
                 $('#btnSend').attr('value', (isSentData ? 'Stop Sending Data' : 'Start Sending Data'));
                 var isRobotFault = $('#isRobotFault').is(":checked");
@@ -127,6 +130,10 @@
                     }
                     else {
                         $('#lblMessage').addClass('default-status-message').html('&nbsp;');
+                    }
+
+                    if (httpRequestCount == httpRequestLimit) {
+                        stopSendingData();
                     }
                 });
             }
